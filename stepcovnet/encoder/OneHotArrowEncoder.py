@@ -7,7 +7,7 @@ from stepcovnet.encoder.AbstractArrowEncoder import AbstractArrowEncoder
 
 class OneHotArrowEncoder(AbstractArrowEncoder):
     def __init__(self, all_arrow_combs: np.array = ALL_ARROW_COMBS):
-        encoder = OneHotEncoder(categories='auto', sparse=False).fit(all_arrow_combs.reshape(-1, 1))
+        encoder = OneHotEncoder(categories='auto', sparse_output=False).fit(all_arrow_combs.reshape(-1, 1))
         super(OneHotArrowEncoder, self).__init__(encoder=encoder)
 
     def encode(self, arrows) -> int:

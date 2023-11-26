@@ -12,7 +12,7 @@ from stepcovnet.encoder.AbstractArrowEncoder import AbstractArrowEncoder
 class BinaryArrowEncoder(AbstractArrowEncoder):
     def __init__(self, num_arrow_types=NUM_ARROW_TYPES):
         self.num_arrow_types = num_arrow_types
-        encoder = OneHotEncoder(categories='auto', sparse=False).fit(np.arange(num_arrow_types).reshape(-1, 1))
+        encoder = OneHotEncoder(categories='auto', sparse_output=False).fit(np.arange(num_arrow_types).reshape(-1, 1))
         super(BinaryArrowEncoder, self).__init__(encoder=encoder)
 
     def encode(self, arrows: Sequence[Any]) -> np.ndarray:
